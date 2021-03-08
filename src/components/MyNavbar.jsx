@@ -1,6 +1,7 @@
 import React from 'react'
 import { Navbar, Nav, NavItem, UncontrolledDropdown, DropdownToggle, NavbarBrand, NavbarText, DropdownMenu, DropdownItem } from 'reactstrap'
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class MyNavbar extends React.Component {
 
@@ -11,7 +12,7 @@ class MyNavbar extends React.Component {
           <NavbarBrand>Emmerce</NavbarBrand>
           <Nav>
             <NavItem>
-              <NavbarText>Hello, username</NavbarText>
+              <NavbarText>Hello, {this.props.userGlobal.username}</NavbarText>
             </NavItem>
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
@@ -36,4 +37,10 @@ class MyNavbar extends React.Component {
   }
 }
 
-export default MyNavbar;
+const mapStateToProps = (state) => {
+  return {
+    userGlobal: state.user
+  }
+}
+
+export default connect(mapStateToProps)(MyNavbar);
