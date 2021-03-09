@@ -12,6 +12,7 @@ class Home extends React.Component {
     itemPerPage: 5,
     searchProductName: "",
     searchCategory: "",
+    sortBy: "",
   }
 
   fetchProducts = () => {
@@ -26,7 +27,39 @@ class Home extends React.Component {
 
   renderProducts = () => {
     const beginningIndex = (this.state.page - 1) * this.state.itemPerPage
-    const currentData = this.state.filteredProductList.slice(beginningIndex, beginningIndex + this.state.itemPerPage)
+    let rawData = [ ...this.state.filteredProductList ]
+
+    const compareString = (a, b) => {
+      if (a.productName < b.productName) {
+        return -1;
+      }
+
+      if (a.productName > b.productName) {
+        return 1;
+      }
+
+      return 0;
+    }
+
+    switch (this.state.sortBy) {
+      case "lowPrice":
+        rawData.sort((a, b) => a.price - b.price);
+        break
+      case "highPrice":
+        rawData.sort((a, b) => b.price - a.price);
+        break
+      case "az":
+        rawData.sort(compareString);
+        break
+      case "za":
+        rawData.sort((a, b) => compareString(b, a));
+        break
+      default:
+        rawData = [ ...this.state.filteredProductList ];
+        break;
+    }
+
+    const currentData = rawData.slice(beginningIndex, beginningIndex + this.state.itemPerPage)
 
     return currentData.map((val) => {
       return <ProductCard productData={val} />
@@ -45,7 +78,7 @@ class Home extends React.Component {
     }
   }
 
-  searchInputHandler = (event) => {
+  inputHandler = (event) => {
     const name = event.target.name
     const value = event.target.value
 
@@ -76,13 +109,13 @@ class Home extends React.Component {
               <div className="card-body">
                 <label htmlFor="searchProductName">Product Name</label>
                 <input
-                  onChange={this.searchInputHandler}
+                  onChange={this.inputHandler}
                   name="searchProductName"
                   type="text"
                   className="form-control mb-3"
                 />
                 <label htmlFor="searchCategory">Product Category</label>
-                <select onChange={this.searchInputHandler} name="searchCategory" className="form-control">
+                <select onChange={this.inputHandler} name="searchCategory" className="form-control">
                   <option value="">All Items</option>
                   <option value="kaos">Kaos</option>
                   <option value="celana">Celana</option>
@@ -98,13 +131,13 @@ class Home extends React.Component {
                 <strong>Sort Products</strong>
               </div>
               <div className="card-body">
-                <label htmlFor="searchCategory">Sort by</label>
-                <select name="searchCategory" className="form-control">
+                <label htmlFor="sortBy">Sort by</label>
+                <select onChange={this.inputHandler} name="sortBy" className="form-control">
                   <option value="">Default</option>
-                  <option value="">Lowest Price</option>
-                  <option value="">Highest Price</option>
-                  <option value="">A-Z</option>
-                  <option value="">Z-A</option>
+                  <option value="lowPrice">Lowest Price</option>
+                  <option value="highPrice">Highest Price</option>
+                  <option value="az">A-Z</option>
+                  <option value="za">Z-A</option>
                 </select>
               </div>
             </div>
