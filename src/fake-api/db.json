@@ -46,6 +46,14 @@
       "password": "password",
       "role": "user",
       "id": 6
+    },
+    {
+      "fullName": "Super Admin",
+      "username": "admin",
+      "email": "admin@mail.com",
+      "password": "password",
+      "role": "admin",
+      "id": 7
     }
   ],
   "transactions": [],
@@ -185,6 +193,22 @@
       "productImage": "https://d29c1z66frfv6c.cloudfront.net/pub/media/catalog/product/large/a2dfdebe840778cf719ce1efcfcefea959433324_xxl-1.jpg",
       "description": "Double-layered hat in a soft rib knit with a sewn-in turn-up at the hem with a small fabric appliqué on the front.",
       "category": "aksesoris"
+    },
+    {
+      "productName": "Black Skinny Jeans",
+      "price": 420000,
+      "productImage": "https://d29c1z66frfv6c.cloudfront.net/pub/media/catalog/product/large/5d0d93e035dba0a9a40f1c93e35ba0d33ea02822_xxl-1.jpg",
+      "description": "5-pocket jeans in washed stretch denim with a regular waist, zip fly and button, and skinny legs.",
+      "category": "celana",
+      "id": 18
+    },
+    {
+      "productName": "Dark Denim Jeans",
+      "price": 460000,
+      "productImage": "https://d29c1z66frfv6c.cloudfront.net/pub/media/catalog/product/large/bfb48ea70d7fcf18d822108cbe92b1edeb179bc5_xxl-1.jpg",
+      "description": "5-pocket jeans in washed stretch denim with a regular waist, zip fly and button, and skinny legs.",
+      "category": "celana",
+      "id": 19
     }
   ],
   "carts": []
