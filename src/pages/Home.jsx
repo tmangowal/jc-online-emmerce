@@ -6,15 +6,18 @@ import { API_URL } from '../constants/API'
 class Home extends React.Component {
   state = {
     productList: [],
+    filteredProductList: [],
     page: 1,
     maxPage: 0,
     itemPerPage: 5,
+    searchProductName: "",
+    searchCategory: "",
   }
 
   fetchProducts = () => {
     Axios.get(`${API_URL}/products`)
     .then((result) => {
-      this.setState({ productList: result.data, maxPage: Math.ceil(result.data.length / this.state.itemPerPage)})
+      this.setState({ productList: result.data, maxPage: Math.ceil(result.data.length / this.state.itemPerPage), filteredProductList: result.data })
     })
     .catch(() => {
       alert("Terjadi kesalahan di server")
@@ -23,7 +26,7 @@ class Home extends React.Component {
 
   renderProducts = () => {
     const beginningIndex = (this.state.page - 1) * this.state.itemPerPage
-    const currentData = this.state.productList.slice(beginningIndex, beginningIndex + this.state.itemPerPage)
+    const currentData = this.state.filteredProductList.slice(beginningIndex, beginningIndex + this.state.itemPerPage)
 
     return currentData.map((val) => {
       return <ProductCard productData={val} />
@@ -42,6 +45,21 @@ class Home extends React.Component {
     }
   }
 
+  searchInputHandler = (event) => {
+    const name = event.target.name
+    const value = event.target.value
+
+    this.setState({ [name]: value })
+  }
+
+  searchBtnHandler = () => {
+    const filteredProductList = this.state.productList.filter((val) => {
+      return val.productName.toLowerCase().includes(this.state.searchProductName.toLowerCase()) && val.category.toLowerCase().includes(this.state.searchCategory.toLowerCase());
+    })
+
+    this.setState({ filteredProductList, maxPage: Math.ceil(filteredProductList.length / this.state.itemPerPage), page: 1 })
+  }
+
   componentDidMount() {
     this.fetchProducts();
   }
@@ -58,17 +76,21 @@ class Home extends React.Component {
               <div className="card-body">
                 <label htmlFor="searchProductName">Product Name</label>
                 <input
+                  onChange={this.searchInputHandler}
                   name="searchProductName"
                   type="text"
                   className="form-control mb-3"
                 />
                 <label htmlFor="searchCategory">Product Category</label>
-                <select name="searchCategory" className="form-control">
+                <select onChange={this.searchInputHandler} name="searchCategory" className="form-control">
                   <option value="">All Items</option>
-                  <option value="">Kaos</option>
-                  <option value="">Celana</option>
-                  <option value="">Aksesoris</option>
+                  <option value="kaos">Kaos</option>
+                  <option value="celana">Celana</option>
+                  <option value="aksesoris">Aksesoris</option>
                 </select>
+                <button onClick={this.searchBtnHandler} className="btn btn-primary mt-3">
+                  Search
+                </button>
               </div>
             </div>
             <div className="card mt-4">
