@@ -10,7 +10,9 @@ class MyNavbar extends React.Component {
     return (
       <div>
         <Navbar color="light" light>
-          <NavbarBrand>Emmerce</NavbarBrand>
+          <NavbarBrand>
+            <Link to="/">Emmerce</Link>
+          </NavbarBrand>
           <Nav>
             {
               this.props.userGlobal.username ?
@@ -24,7 +26,7 @@ class MyNavbar extends React.Component {
                   </DropdownToggle>
                   <DropdownMenu right>
                     <DropdownItem>
-                      <Link to="/cart">Cart</Link>
+                      <Link to="/cart">Cart ({this.props.cartGlobal.cartList.length})</Link>
                     </DropdownItem>
                     <DropdownItem>
                       <Link to="/history">History</Link>
@@ -59,7 +61,8 @@ class MyNavbar extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    userGlobal: state.user
+    userGlobal: state.user,
+    cartGlobal: state.cart,
   }
 }
 
