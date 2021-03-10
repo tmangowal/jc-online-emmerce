@@ -56,7 +56,95 @@
       "id": 7
     }
   ],
-  "transactions": [],
+  "transactions": [
+    {
+      "userId": 4,
+      "address": "Jalan jalan",
+      "recipientName": "Arnold",
+      "totalPrice": 759150,
+      "totalPayment": 800000,
+      "transactionDate": "10-2-2021",
+      "transactionItems": [
+        {
+          "userId": 4,
+          "productId": 2,
+          "price": 23000,
+          "productName": "Kaos Putih Polos",
+          "productImage": "https://d29c1z66frfv6c.cloudfront.net/pub/media/catalog/product/large/1ccc62f925118a5e2a54f9ca1b0eac4b197477ba_xxl-1.jpg",
+          "quantity": 1,
+          "id": 2
+        },
+        {
+          "userId": 4,
+          "productId": 11,
+          "price": 350000,
+          "productName": "Celana Jogger Dark Gray",
+          "productImage": "https://d29c1z66frfv6c.cloudfront.net/pub/media/catalog/product/large/3bbd594e48b17413d683ad271cc4ccf36dbc0323_xxl-1.jpg",
+          "quantity": 2,
+          "id": 3
+        }
+      ],
+      "id": 1
+    },
+    {
+      "userId": 4,
+      "address": "Jalan jalan",
+      "recipientName": "Arnold",
+      "totalPrice": 759150,
+      "totalPayment": 800000,
+      "transactionDate": "10-3-2021",
+      "transactionItems": [
+        {
+          "userId": 4,
+          "productId": 2,
+          "price": 23000,
+          "productName": "Kaos Putih Polos",
+          "productImage": "https://d29c1z66frfv6c.cloudfront.net/pub/media/catalog/product/large/1ccc62f925118a5e2a54f9ca1b0eac4b197477ba_xxl-1.jpg",
+          "quantity": 1,
+          "id": 2
+        },
+        {
+          "userId": 4,
+          "productId": 11,
+          "price": 350000,
+          "productName": "Celana Jogger Dark Gray",
+          "productImage": "https://d29c1z66frfv6c.cloudfront.net/pub/media/catalog/product/large/3bbd594e48b17413d683ad271cc4ccf36dbc0323_xxl-1.jpg",
+          "quantity": 2,
+          "id": 3
+        }
+      ],
+      "id": 2
+    },
+    {
+      "userId": 4,
+      "address": "Jalan kenangan",
+      "recipientName": "Arnold Suasanaseger",
+      "totalPrice": 759150,
+      "totalPayment": 850000,
+      "transactionDate": "10-3-2021",
+      "transactionItems": [
+        {
+          "userId": 4,
+          "productId": 2,
+          "price": 23000,
+          "productName": "Kaos Putih Polos",
+          "productImage": "https://d29c1z66frfv6c.cloudfront.net/pub/media/catalog/product/large/1ccc62f925118a5e2a54f9ca1b0eac4b197477ba_xxl-1.jpg",
+          "quantity": 1,
+          "id": 2
+        },
+        {
+          "userId": 4,
+          "productId": 11,
+          "price": 350000,
+          "productName": "Celana Jogger Dark Gray",
+          "productImage": "https://d29c1z66frfv6c.cloudfront.net/pub/media/catalog/product/large/3bbd594e48b17413d683ad271cc4ccf36dbc0323_xxl-1.jpg",
+          "quantity": 2,
+          "id": 3
+        }
+      ],
+      "id": 3
+    }
+  ],
   "products": [
     {
       "id": 1,
@@ -211,24 +299,5 @@
       "id": 19
     }
   ],
-  "carts": [
-    {
-      "userId": 4,
-      "productId": 2,
-      "price": 23000,
-      "productName": "Kaos Putih Polos",
-      "productImage": "https://d29c1z66frfv6c.cloudfront.net/pub/media/catalog/product/large/1ccc62f925118a5e2a54f9ca1b0eac4b197477ba_xxl-1.jpg",
-      "quantity": 1,
-      "id": 2
-    },
-    {
-      "userId": 4,
-      "productId": 11,
-      "price": 350000,
-      "productName": "Celana Jogger Dark Gray",
-      "productImage": "https://d29c1z66frfv6c.cloudfront.net/pub/media/catalog/product/large/3bbd594e48b17413d683ad271cc4ccf36dbc0323_xxl-1.jpg",
-      "quantity": 2,
-      "id": 3
-    }
-  ]
+  "carts": []
 }
